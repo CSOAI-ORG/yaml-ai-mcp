@@ -1,0 +1,10 @@
+name: yaml-ai-mcp
+description: "MEOK AI Labs — YAML parsing, validation, and conversion tools powered by MEOK AI Labs."
+vendor: MEOK AI Labs
+homepage: https://meok.ai
+repository: https://github.com/CSOAI-ORG/yaml-ai-mcp
+license: MIT
+categories: [Developer Tools, Data Processing]
+tags: [yaml, yaml-processing, yaml-validation, configuration-file, data-serialization]
+runtime: python
+entrypoint: server.py
