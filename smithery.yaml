@@ -1,10 +1,37 @@
 name: yaml-ai-mcp
-description: "MEOK AI Labs — YAML parsing, validation, and conversion tools powered by MEOK AI Labs."
-vendor: MEOK AI Labs
-homepage: https://meok.ai
-repository: https://github.com/CSOAI-ORG/yaml-ai-mcp
-license: MIT
-categories: [Developer Tools, Data Processing]
-tags: [yaml, yaml-processing, yaml-validation, configuration-file, data-serialization]
-runtime: python
-entrypoint: server.py
+description: YAML validation, JSON conversion, linting, and merging.
+version: 1.0.0
+tools:
+- name: validate_yaml
+  description: Validate YAML syntax and report any errors.
+  parameters:
+  - name: content
+    type: string
+    required: true
+- name: convert_yaml_json
+  description: Convert between YAML and JSON formats.
+  parameters:
+  - name: content
+    type: string
+    required: true
+  - name: direction
+    type: string
+    required: false
+- name: lint_yaml
+  description: Lint YAML content for style issues and best practices.
+  parameters:
+  - name: content
+    type: string
+    required: true
+- name: merge_yaml
+  description: Merge two YAML documents together.
+  parameters:
+  - name: yaml_a
+    type: string
+    required: true
+  - name: yaml_b
+    type: string
+    required: true
+  - name: strategy
+    type: string
+    required: false

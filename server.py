@@ -3,6 +3,11 @@ YAML AI MCP Server
 YAML parsing, validation, and conversion tools powered by MEOK AI Labs.
 """
 
+
+import sys, os
+sys.path.insert(0, os.path.expanduser('~/clawd/meok-labs-engine/shared'))
+from auth_middleware import check_access
+
 import json
 import time
 from collections import defaultdict
@@ -32,12 +37,16 @@ def _get_yaml():
 
 
 @mcp.tool()
-def validate_yaml(content: str) -> dict:
+def validate_yaml(content: str, api_key: str = "") -> dict:
     """Validate YAML syntax and report any errors.
 
     Args:
         content: YAML string to validate
     """
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     _check_rate_limit("validate_yaml")
     yaml = _get_yaml()
     try:
@@ -57,13 +66,17 @@ def validate_yaml(content: str) -> dict:
 
 
 @mcp.tool()
-def convert_yaml_json(content: str, direction: str = "yaml_to_json") -> dict:
+def convert_yaml_json(content: str, direction: str = "yaml_to_json", api_key: str = "") -> dict:
     """Convert between YAML and JSON formats.
 
     Args:
         content: Input content string
         direction: Conversion direction - 'yaml_to_json' or 'json_to_yaml'
     """
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     _check_rate_limit("convert_yaml_json")
     yaml = _get_yaml()
     if direction == "yaml_to_json":
@@ -85,12 +98,16 @@ def convert_yaml_json(content: str, direction: str = "yaml_to_json") -> dict:
 
 
 @mcp.tool()
-def lint_yaml(content: str) -> dict:
+def lint_yaml(content: str, api_key: str = "") -> dict:
     """Lint YAML content for style issues and best practices.
 
     Args:
         content: YAML string to lint
     """
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     _check_rate_limit("lint_yaml")
     yaml = _get_yaml()
     issues = []
@@ -118,7 +135,7 @@ def lint_yaml(content: str) -> dict:
 
 
 @mcp.tool()
-def merge_yaml(yaml_a: str, yaml_b: str, strategy: str = "deep") -> dict:
+def merge_yaml(yaml_a: str, yaml_b: str, strategy: str = "deep", api_key: str = "") -> dict:
     """Merge two YAML documents together.
 
     Args:
@@ -126,6 +143,10 @@ def merge_yaml(yaml_a: str, yaml_b: str, strategy: str = "deep") -> dict:
         yaml_b: Second YAML document (overlay)
         strategy: Merge strategy - 'deep' (recursive merge) or 'shallow' (top-level only)
     """
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     _check_rate_limit("merge_yaml")
     yaml = _get_yaml()
     try:

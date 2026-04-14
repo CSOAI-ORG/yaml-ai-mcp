@@ -1,23 +1,77 @@
 {
   "name": "yaml-ai-mcp",
-  "description": "MEOK AI Labs \u2014 YAML parsing, validation, and conversion tools powered by MEOK AI Labs.",
-  "vendor": "MEOK AI Labs",
-  "homepage": "https://meok.ai",
-  "repository": "https://github.com/CSOAI-ORG/yaml-ai-mcp",
-  "runtime": "python",
-  "entrypoint": "server.py",
+  "description": "YAML validation, JSON conversion, linting, and merging.",
+  "version": "1.0.0",
   "tools": [
-    "validate_yaml",
-    "convert_yaml_json",
-    "lint_yaml",
-    "merge_yaml"
-  ],
-  "categories": [
-    "Developer Tools",
-    "Data Processing"
-  ],
-  "pricing": {
-    "free": "50 calls/day",
-    "pro": "$9/mo"
-  }
+    {
+      "name": "validate_yaml",
+      "description": "Validate YAML syntax and report any errors.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "content"
+        ]
+      }
+    },
+    {
+      "name": "convert_yaml_json",
+      "description": "Convert between YAML and JSON formats.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "string"
+          },
+          "direction": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "content"
+        ]
+      }
+    },
+    {
+      "name": "lint_yaml",
+      "description": "Lint YAML content for style issues and best practices.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "content"
+        ]
+      }
+    },
+    {
+      "name": "merge_yaml",
+      "description": "Merge two YAML documents together.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "yaml_a": {
+            "type": "string"
+          },
+          "yaml_b": {
+            "type": "string"
+          },
+          "strategy": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "yaml_a",
+          "yaml_b"
+        ]
+      }
+    }
+  ]
 }
