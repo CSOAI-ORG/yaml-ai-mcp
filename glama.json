@@ -1,0 +1,10 @@
+{
+  "name": "yaml-ai-mcp",
+  "description": "MEOK AI Labs \u2014 yaml-ai-mcp",
+  "vendor": "MEOK AI Labs",
+  "homepage": "https://meok.ai",
+  "repository": "https://github.com/CSOAI-ORG/yaml-ai-mcp",
+  "license": "MIT",
+  "runtime": "python",
+  "entryPoint": "mcp-wrapper.py"
+}
