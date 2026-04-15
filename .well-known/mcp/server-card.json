@@ -1,0 +1,52 @@
+{
+  "name": "yaml-ai",
+  "description": "Yaml Ai tools powered by MEOK AI Labs.",
+  "version": "1.0.0",
+  "protocol_version": "2025-11-25",
+  "publisher": {
+    "name": "MEOK AI Labs",
+    "url": "https://meok.ai",
+    "email": "nicholas@meok.ai"
+  },
+  "repository": "https://github.com/CSOAI-ORG/yaml-ai-mcp",
+  "license": "MIT",
+  "transport": [
+    "stdio",
+    "streamable-http"
+  ],
+  "authentication": {
+    "type": "api-key",
+    "free_tier": true,
+    "free_limit": "15 calls/day"
+  },
+  "tools": [
+    {
+      "name": "validate_yaml",
+      "description": "Validate YAML syntax and report any errors."
+    },
+    {
+      "name": "convert_yaml_json",
+      "description": "Convert between YAML and JSON formats."
+    },
+    {
+      "name": "lint_yaml",
+      "description": "Lint YAML content for style issues and best practices."
+    },
+    {
+      "name": "merge_yaml",
+      "description": "Merge two YAML documents together."
+    }
+  ],
+  "categories": [
+    "AI & Machine Learning"
+  ],
+  "pricing": {
+    "free": {
+      "calls_per_day": 15
+    },
+    "pro": {
+      "price": "$29/month",
+      "url": "https://meok.ai/pricing"
+    }
+  }
+}
