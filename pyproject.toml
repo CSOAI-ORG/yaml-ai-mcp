@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 [project]
 name = "yaml-ai-mcp"
 version = "1.0.0"
-description = "MEOK AI Labs — yaml-ai-mcp"
+description = "AI-powered yaml ai MCP server for agents. Supports validate yaml, convert yaml json, lint yaml. By MEOK AI Labs."
 license = {file = "LICENSE"}
 requires-python = ">=3.10"
 authors = [{name = "MEOK AI Labs", email = "nicholas@meok.ai"}]
