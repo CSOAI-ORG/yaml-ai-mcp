@@ -1,24 +1,65 @@
-# YAML AI MCP Server
+# Yaml Ai
 
-YAML validation, JSON conversion, linting, and merging.
+> By [MEOK AI Labs](https://meok.ai) — MEOK AI Labs MCP Server
+
+YAML AI MCP Server
+
+## Installation
+
+```bash
+pip install yaml-ai-mcp
+```
+
+## Usage
+
+```bash
+# Run standalone
+python server.py
+
+# Or via MCP
+mcp install yaml-ai-mcp
+```
 
 ## Tools
 
-- **validate_yaml**
-- **convert_yaml_json**
-- **lint_yaml**
-- **merge_yaml**
+### `validate_yaml`
+Validate YAML syntax and report any errors.
 
-## Quick Start
+**Parameters:**
+- `content` (str)
 
-```bash
-pip install mcp
-python server.py
-```
+### `convert_yaml_json`
+Convert between YAML and JSON formats.
 
-## Rate Limits
+**Parameters:**
+- `content` (str)
+- `direction` (str)
 
-- Free tier: 50 calls/day per tool
-- Upgrade: https://meok.ai/pricing
+### `lint_yaml`
+Lint YAML content for style issues and best practices.
 
-Built by [MEOK AI Labs](https://meok.ai)
+**Parameters:**
+- `content` (str)
+
+### `merge_yaml`
+Merge two YAML documents together.
+
+**Parameters:**
+- `yaml_a` (str)
+- `yaml_b` (str)
+- `strategy` (str)
+
+
+## Authentication
+
+Free tier: 15 calls/day. Upgrade at [meok.ai/pricing](https://meok.ai/pricing) for unlimited access.
+
+## Links
+
+- **Website**: [meok.ai](https://meok.ai)
+- **GitHub**: [CSOAI-ORG/yaml-ai-mcp](https://github.com/CSOAI-ORG/yaml-ai-mcp)
+- **PyPI**: [pypi.org/project/yaml-ai-mcp](https://pypi.org/project/yaml-ai-mcp/)
+
+## License
+
+MIT — MEOK AI Labs
