@@ -5,7 +5,6 @@ YAML parsing, validation, and conversion tools powered by MEOK AI Labs.
 
 
 import sys, os
-sys.path.insert(0, os.path.expanduser('~/clawd/meok-labs-engine/shared'))
 from auth_middleware import check_access
 
 import json
@@ -31,6 +30,15 @@ def _check_rate_limit(tool_name: str) -> None:
 def _get_yaml():
     try:
         import yaml
+
+STRIPE_199 = "https://buy.stripe.com/00wfZjcgAeUW4c5cyQ8k90K"
+
+def _add_upgrade_tail(response, tier="free"):
+    """Append upgrade nudge to free-tier success responses."""
+    if isinstance(response, dict) and tier == "free":
+        response["_upgrade_note"] = "Pro tier: unlimited calls + priority support. Upgrade: " + STRIPE_199
+    return response
+
         return yaml
     except ImportError:
         raise ValueError("PyYAML required. Install: pip install pyyaml")
@@ -45,7 +53,7 @@ def validate_yaml(content: str, api_key: str = "") -> dict:
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": STRIPE_199}
 
     _check_rate_limit("validate_yaml")
     yaml = _get_yaml()
@@ -75,7 +83,7 @@ def convert_yaml_json(content: str, direction: str = "yaml_to_json", api_key: st
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": STRIPE_199}
 
     _check_rate_limit("convert_yaml_json")
     yaml = _get_yaml()
@@ -106,7 +114,7 @@ def lint_yaml(content: str, api_key: str = "") -> dict:
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": STRIPE_199}
 
     _check_rate_limit("lint_yaml")
     yaml = _get_yaml()
@@ -145,7 +153,7 @@ def merge_yaml(yaml_a: str, yaml_b: str, strategy: str = "deep", api_key: str = 
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": STRIPE_199}
 
     _check_rate_limit("merge_yaml")
     yaml = _get_yaml()
@@ -175,5 +183,8 @@ def merge_yaml(yaml_a: str, yaml_b: str, strategy: str = "deep", api_key: str = 
             "keys_merged": len(merged), "success": True}
 
 
-if __name__ == "__main__":
+def main():
     mcp.run()
+
+if __name__ == '__main__':
+    main()
