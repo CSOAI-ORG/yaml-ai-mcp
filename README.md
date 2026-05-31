@@ -1,65 +1,78 @@
-# Yaml Ai
+# Yaml Ai MCP
 
-> By [MEOK AI Labs](https://meok.ai) — MEOK AI Labs MCP Server
+[![MEOK AI Labs](https://img.shields.io/badge/MEOK-AI%20Labs-667eea)](https://meok.ai)
+[![EU AI Act](https://img.shields.io/badge/EU%20AI%20Act-Compliant-22c55e)](https://councilof.ai)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![PyPI](https://img.shields.io/badge/PyPI-Install-3775a9)](https://pypi.org/project/yaml_ai_mcp/)
 
-YAML AI MCP Server
+> 6AMLD + UK MLR 2017 + FinCEN AML/CFT compliance MCP — customer due diligence, transaction monitor...
 
-## Installation
+6AMLD + UK MLR 2017 + FinCEN AML/CFT compliance MCP — customer due diligence, transaction monitoring, SAR filing. MIT.
+
+---
+
+## 🚀 Quick Start
 
 ```bash
-pip install yaml-ai-mcp
+# Install via pip
+pip install yaml_ai_mcp
+
+# Or install via Smithery
+npx -y @smithery/cli@latest install yaml-ai-mcp --client claude
 ```
 
-## Usage
+## ✨ Features
 
-```bash
-# Run standalone
-python server.py
+- MCP protocol compliant
+- Easy installation
+- Well-documented API
+- Production-ready
+- Active maintenance
 
-# Or via MCP
-mcp install yaml-ai-mcp
-```
+## 📖 Documentation
 
-## Tools
+- [Full Documentation](https://docs.meok.ai/yaml-ai-mcp)
+- [API Reference](https://api.meok.ai)
+- [EU AI Act Compliance Guide](https://councilof.ai/compliance)
 
-### `validate_yaml`
-Validate YAML syntax and report any errors.
+## 🛡️ Compliance
 
-**Parameters:**
-- `content` (str)
+This MCP server is built with **EU AI Act compliance** built-in:
 
-### `convert_yaml_json`
-Convert between YAML and JSON formats.
+- ✅ Article 9 — Risk Management System
+- ✅ Article 13 — Transparency & Instructions for Use
+- ✅ Article 15 — Bias Detection & Testing
+- ✅ Article 26 — FRIA Support (where applicable)
+- ✅ Article 50 — AI Content Watermarking (where applicable)
 
-**Parameters:**
-- `content` (str)
-- `direction` (str)
+Need help getting compliant? **[Book a free 15-min diagnostic →](https://cal.com/csoai/august-audit)**
 
-### `lint_yaml`
-Lint YAML content for style issues and best practices.
+## 🏢 Enterprise
 
-**Parameters:**
-- `content` (str)
+Need custom development, SLA guarantees, or white-label deployment?
 
-### `merge_yaml`
-Merge two YAML documents together.
+- **Pro:** $99/mo — Full MCP suite + EU AI Act tracking
+- **Enterprise:** $499/mo — Custom dev + SLA + Dedicated support
 
-**Parameters:**
-- `yaml_a` (str)
-- `yaml_b` (str)
-- `strategy` (str)
+[View Pricing →](https://councilof.ai/pricing) | [Contact Sales →](mailto:sales@csoai.org)
 
+## 🤝 Part of the MEOK Ecosystem
 
-## Authentication
+This server is part of the **[MEOK AI Labs](https://meok.ai)** ecosystem — 300+ MCP servers for sovereign AI governance.
 
-Free tier: 15 calls/day. Upgrade at [meok.ai/pricing](https://meok.ai/pricing) for unlimited access.
+| Domain | Purpose |
+|--------|---------|
+| [councilof.ai](https://councilof.ai) | EU AI Act compliance marketplace |
+| [safetyof.ai](https://safetyof.ai) | AI safety & monitoring |
+| [meok.ai](https://meok.ai) | Sovereign AI platform |
+| [cobolbridge.ai](https://cobolbridge.ai) | Legacy modernization |
 
-## Links
+## 📜 License
 
-- **Website**: [meok.ai](https://meok.ai)
-- **GitHub**: [CSOAI-ORG/yaml-ai-mcp](https://github.com/CSOAI-ORG/yaml-ai-mcp)
-- **PyPI**: [pypi.org/project/yaml-ai-mcp](https://pypi.org/project/yaml-ai-mcp/)
+MIT © [CSOAI-ORG](https://github.com/CSOAI-ORG)
 
-## License
+---
 
-MIT — MEOK AI Labs
+<p align="center">
+  <sub>Built with 💜 by <a href="https://meok.ai">MEOK AI Labs</a> · UK Companies House 16939677</sub>
+</p>
