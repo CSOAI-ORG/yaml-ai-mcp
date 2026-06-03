@@ -3,7 +3,6 @@ YAML AI MCP Server
 YAML parsing, validation, and conversion tools powered by MEOK AI Labs.
 """
 
-
 import sys, os
 from auth_middleware import check_access
 
@@ -14,23 +13,6 @@ from mcp.server.fastmcp import FastMCP
 
 mcp = FastMCP("yaml-ai", instructions="MEOK AI Labs MCP Server")
 
-_call_counts: dict[str, list[float]] = defaultdict(list)
-FREE_TIER_LIMIT = 50
-WINDOW = 86400
-
-
-def _check_rate_limit(tool_name: str) -> None:
-    now = time.time()
-    _call_counts[tool_name] = [t for t in _call_counts[tool_name] if now - t < WINDOW]
-    if len(_call_counts[tool_name]) >= FREE_TIER_LIMIT:
-        raise ValueError(f"Rate limit exceeded for {tool_name}. Free tier: {FREE_TIER_LIMIT}/day. Upgrade at https://meok.ai/pricing")
-    _call_counts[tool_name].append(now)
-
-
-def _get_yaml():
-    try:
-        import yaml
-
 STRIPE_199 = "https://buy.stripe.com/00wfZjcgAeUW4c5cyQ8k90K"
 
 def _add_upgrade_tail(response, tier="free"):
@@ -39,10 +21,24 @@ def _add_upgrade_tail(response, tier="free"):
         response["_upgrade_note"] = "Pro tier: unlimited calls + priority support. Upgrade: " + STRIPE_199
     return response
 
+_call_counts: dict[str, list[float]] = defaultdict(list)
+FREE_TIER_LIMIT = 50
+WINDOW = 86400
+
+def _check_rate_limit(tool_name: str) -> None:
+    now = time.time()
+    _call_counts[tool_name] = [t for t in _call_counts[tool_name] if now - t < WINDOW]
+    if len(_call_counts[tool_name]) >= FREE_TIER_LIMIT:
+        raise ValueError(f"Rate limit exceeded for {tool_name}. Free tier: {FREE_TIER_LIMIT}/day. Upgrade at https://meok.ai/pricing")
+    _call_counts[tool_name].append(now)
+
+def _get_yaml():
+    try:
+        import yaml
+
         return yaml
     except ImportError:
         raise ValueError("PyYAML required. Install: pip install pyyaml")
-
 
 @mcp.tool()
 def validate_yaml(content: str, api_key: str = "") -> dict:
@@ -71,7 +67,6 @@ def validate_yaml(content: str, api_key: str = "") -> dict:
             error_info["line"] = mark.line + 1
             error_info["column"] = mark.column + 1
         return error_info
-
 
 @mcp.tool()
 def convert_yaml_json(content: str, direction: str = "yaml_to_json", api_key: str = "") -> dict:
@@ -103,7 +98,6 @@ def convert_yaml_json(content: str, direction: str = "yaml_to_json", api_key: st
             return {"error": str(e), "direction": direction, "success": False}
     else:
         return {"error": "direction must be 'yaml_to_json' or 'json_to_yaml'", "success": False}
-
 
 @mcp.tool()
 def lint_yaml(content: str, api_key: str = "") -> dict:
@@ -140,7 +134,6 @@ def lint_yaml(content: str, api_key: str = "") -> dict:
     return {"valid": parse_valid, "issues": issues, "issue_count": len(issues),
             "errors": sum(1 for i in issues if i["severity"] == "error"),
             "warnings": sum(1 for i in issues if i["severity"] == "warning")}
-
 
 @mcp.tool()
 def merge_yaml(yaml_a: str, yaml_b: str, strategy: str = "deep", api_key: str = "") -> dict:
@@ -181,7 +174,6 @@ def merge_yaml(yaml_a: str, yaml_b: str, strategy: str = "deep", api_key: str = 
     result = yaml.dump(merged, default_flow_style=False, sort_keys=False)
     return {"result": result, "strategy": strategy, "keys_a": len(a), "keys_b": len(b),
             "keys_merged": len(merged), "success": True}
-
 
 def main():
     mcp.run()
