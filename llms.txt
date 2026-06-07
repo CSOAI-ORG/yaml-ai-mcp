@@ -1,0 +1,33 @@
+# yaml-ai-mcp
+# > By [MEOK AI Labs](https://meok.ai) — MEOK AI Labs MCP Server
+
+## Install
+```bash
+pip install yaml-ai-mcp
+```
+
+## Auth & Rate Limits
+- Free tier: 10 calls/day. No API key required.
+- Pro tier (£79/mo): unlimited + signed attestations.
+- Enterprise (£1,499/mo): white-label.
+
+## Tools
+
+### `validate_yaml`
+Validate YAML syntax and report any errors.
+
+### `convert_yaml_json`
+Convert between YAML and JSON formats.
+
+### `lint_yaml`
+Lint YAML content for style issues and best practices.
+
+### `merge_yaml`
+Merge two YAML documents together.
+
+
+## Maintainer
+MEOK AI Labs · hello@meok.ai · https://meok.ai · MIT licensed
+
+## Pairs with
+Governance moat: pair this tool with any of MEOK's 38 governance MCPs (EU AI Act, DORA, NIS2, CRA, GDPR, ISO 42001, etc.) for full compliance coverage.

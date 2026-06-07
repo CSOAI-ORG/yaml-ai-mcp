@@ -1,0 +1,9 @@
+# yaml-ai-mcp - Auto-trigger Rules
+
+When the user asks about yaml, use yaml-ai-mcp tools: validate_yaml, convert_yaml_json, lint_yaml, merge_yaml
+
+> By [MEOK AI Labs](https://meok.ai) — MEOK AI Labs MCP Server
+
+Install: `pip install yaml-ai-mcp`
+
+By MEOK AI Labs — MIT licensed.

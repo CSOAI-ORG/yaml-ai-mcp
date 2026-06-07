@@ -1,0 +1,20 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-07-09/server.json",
+  "name": "io.github.CSOAI-ORG/yaml-ai-mcp",
+  "description": "AI-powered yaml ai MCP server for agents. Supports validate yaml, convert yaml json, lint yaml. By MEOK AI Labs.",
+  "version": "1.0.6",
+  "repository": {
+    "url": "https://github.com/CSOAI-ORG/yaml-ai-mcp",
+    "source": "github"
+  },
+  "packages": [
+    {
+      "registry_type": "pypi",
+      "identifier": "yaml-ai-mcp",
+      "version": "1.0.6",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "yaml-ai-mcp",
+  "title": "Yaml Ai Mcp",
+  "description": "AI-powered yaml ai MCP server for agents. Supports validate yaml, convert yaml json, lint yaml. By MEOK AI Labs.",
+  "version": "1.0.6",
+  "homepage": "https://meok.ai",
+  "license": "MIT",
+  "transport": {
+    "type": "stdio"
+  },
+  "tools": [
+    {
+      "name": "validate_yaml"
+    },
+    {
+      "name": "convert_yaml_json"
+    },
+    {
+      "name": "lint_yaml"
+    },
+    {
+      "name": "merge_yaml"
+    }
+  ]
+}
