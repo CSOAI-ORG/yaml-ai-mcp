@@ -2,7 +2,7 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.CSOAI-ORG/yaml-ai-mcp",
   "description": "AI-powered yaml ai MCP server for agents. Supports validate yaml, convert yaml json, lint yaml. By",
-  "version": "1.0.6",
+  "version": "1.0.8",
   "repository": {
     "url": "https://github.com/CSOAI-ORG/yaml-ai-mcp",
     "source": "github"
@@ -10,7 +10,7 @@
   "packages": [
     {
       "identifier": "yaml-ai-mcp",
-      "version": "1.0.6",
+      "version": "1.0.8",
       "transport": {
         "type": "stdio"
       },
