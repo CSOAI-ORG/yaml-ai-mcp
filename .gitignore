@@ -2,3 +2,9 @@ __pycache__/
 *.pyc
 .env
 *.db
+
+# Auto-added during alignment sweep
+dist/yaml_ai_mcp-1.0.6-py3-none-any.whl
+dist/yaml_ai_mcp-1.0.6.tar.gz
+dist/yaml_ai_mcp-1.0.8-py3-none-any.whl
+dist/yaml_ai_mcp-1.0.8.tar.gz
