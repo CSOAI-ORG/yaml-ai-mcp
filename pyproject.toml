@@ -9,7 +9,7 @@ description = "AI-powered yaml ai MCP server for agents. Supports validate yaml,
 license = {file = "LICENSE"}
 requires-python = ">=3.10"
 authors = [{name = "MEOK AI Labs", email = "nicholas@meok.ai"}]
-dependencies = ["mcp>=1.0.0", "pyyaml>=6.0", ]
+dependencies = ["mcp>=2.0.0", "pyyaml>=6.0", ]
 keywords = ["mcp", "ai", "meok", "yaml", "mcp/"]
 classifiers = [
     "Programming Language :: Python :: 3",
@@ -22,7 +22,7 @@ Homepage = "https://meok.ai"
 Repository = "https://github.com/CSOAI-ORG/yaml-ai-mcp"
 [tool.hatch.build.targets.wheel]
 packages = ["."]
-only-include = ["server.py"]
+only-include = ["server.py", "mcp2026_shim.py"]
 
 [project.scripts]
 yaml_ai_mcp = "server:main"
